@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="cpr"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\opt\;CMake Files\opt\cpr\;CMake Files\opt\cpr\opt\;CMake Files\opt\cpr\cpr\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cpr">
+				<Option output="/home/jason/CLionProjects/cpr-example/cmake-build-release/lib/libcpr.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUSE_SYSTEM_CURL"/>
+					<Add option="-DCMAKE_USE_OPENSSL"/>
+					<Add directory="/home/jason/CLionProjects/cpr-example/opt/cpr/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr/Makefile&quot;  VERBOSE=1 cpr"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cpr/fast">
+				<Option output="/home/jason/CLionProjects/cpr-example/cmake-build-release/lib/libcpr.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUSE_SYSTEM_CURL"/>
+					<Add option="-DCMAKE_USE_OPENSSL"/>
+					<Add directory="/home/jason/CLionProjects/cpr-example/opt/cpr/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr/Makefile&quot;  VERBOSE=1 cpr/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/auth.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/cookies.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/cprtypes.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/digest.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/error.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/multipart.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/parameters.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/payload.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/proxies.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/session.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/ssl_options.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/timeout.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/util.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/api.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/auth.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/body.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/cookies.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/cpr.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/cprtypes.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/curlholder.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/defines.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/digest.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/error.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/max_redirects.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/multipart.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/parameters.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/payload.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/proxies.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/response.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/session.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/ssl_options.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/timeout.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/include/cpr/util.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\opt\"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\opt\cpr\"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\opt\cpr\"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/opt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\opt\cpr\opt\"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/opt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\opt\cpr\opt\"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\opt\cpr\cpr\"/>
+		</Unit>
+		<Unit filename="/home/jason/CLionProjects/cpr-example/opt/cpr/cpr/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\opt\cpr\cpr\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
