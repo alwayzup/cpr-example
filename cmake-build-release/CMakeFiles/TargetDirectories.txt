@@ -1,0 +1,12 @@
+/home/jason/CLionProjects/cpr-example/cmake-build-release/CMakeFiles/rebuild_cache.dir
+/home/jason/CLionProjects/cpr-example/cmake-build-release/CMakeFiles/edit_cache.dir
+/home/jason/CLionProjects/cpr-example/cmake-build-release/CMakeFiles/example.dir
+/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/CMakeFiles/rebuild_cache.dir
+/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/CMakeFiles/edit_cache.dir
+/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/CMakeFiles/rebuild_cache.dir
+/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/CMakeFiles/edit_cache.dir
+/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/opt/CMakeFiles/rebuild_cache.dir
+/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/opt/CMakeFiles/edit_cache.dir
+/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr/CMakeFiles/rebuild_cache.dir
+/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr/CMakeFiles/edit_cache.dir
+/home/jason/CLionProjects/cpr-example/cmake-build-release/opt/cpr/cpr/CMakeFiles/cpr.dir
