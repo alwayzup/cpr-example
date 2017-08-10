@@ -33,10 +33,12 @@ int main(int argc, char** argv) {
             url += user;
             url += "/lights/";
             //get number of lights
+            cout << "Attempting connection to " << url << endl;
             auto response = Get(cpr::Url{url});
             auto jsonAllLights = json::parse(response.text);
             numLights = jsonAllLights.size();
             noConnection = false;
+            cout << "Connection active.\nInitial light states:" << endl;
         } catch (exception e) {
             cout << "Connection Failed.\n\n" << endl;
         }
@@ -81,26 +83,40 @@ int main(int argc, char** argv) {
     cout << "\n\nMonitoring for changes. Press ctrl-c to exit." << endl;
 
     //check for changes in light states and print
+    bool disconnect = false;
     while(true){
-        for (int i=1; i<numLights+1; i++){
-            string lightUrl = url;
-            string istr = to_string(i);
-            lightUrl += istr;
-            auto response = Get(cpr::Url{lightUrl});
-            auto jsonTmp = json::parse(response.text);
-            if (jsonState[istr]["on"] != jsonTmp["state"]["on"]){
-                jsonState[istr]["on"] = jsonTmp["state"]["on"];
-                cout << "{\n\"id\":\"" << istr << "\",\n\"on\":"
-                                              << jsonTmp["state"]["on"]
-                                              << "\n}\n";
+        try {
+            for (int i=1; i<numLights+1; i++){
+                string lightUrl = url;
+                string istr = to_string(i);
+                lightUrl += istr;
+                auto response = Get(cpr::Url{lightUrl});
+                auto jsonTmp = json::parse(response.text);
+                // inform if connection is resumed
+                if (disconnect) {
+                    disconnect = false;
+                    cout << "Connection active. Monitoring resumed." << endl;
+                }
+                // print changes
+                if (jsonState[istr]["on"] != jsonTmp["state"]["on"]){
+                    jsonState[istr]["on"] = jsonTmp["state"]["on"];
+                    cout << "{\n\"id\":\"" << istr << "\",\n\"on\":"
+                         << jsonTmp["state"]["on"]
+                         << "\n}\n";
+                }
+                int bri = jsonTmp["state"]["bri"];
+                bri = (int) bri*100.0f/254.0f + 0.5f;
+                if (jsonState[istr]["brightness"] != bri){
+                    jsonState[istr]["brightness"] = bri;
+                    cout << "{\n\"id\":\"" << istr << "\",\n\"brightness\":"
+                         << to_string(bri)
+                         << "\n}\n";
+                }
             }
-            int bri = jsonTmp["state"]["bri"];
-            bri = (int) bri*100.0f/254.0f + 0.5f;
-            if (jsonState[istr]["brightness"] != bri){
-                jsonState[istr]["brightness"] = bri;
-                cout << "{\n\"id\":\"" << istr << "\",\n\"brightness\":"
-                     << to_string(bri)
-                     << "\n}\n";
+        } catch (exception e) {
+            if (!disconnect) {
+                disconnect = true;
+                cout << "Connection interrupted. Attempting to reconnect..." << endl;
             }
         }
         this_thread::sleep_for(chrono::milliseconds(500));
