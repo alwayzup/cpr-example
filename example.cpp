@@ -10,14 +10,9 @@ using namespace std;
 using namespace cpr;
 using namespace nlohmann;
 
-int main(int argc, char** argv) {
-    int numLights;
-    json jsonState;
+string connect(){
     string url;
     bool noConnection = true;
-
-    //get target URL
-    cout << "Welcome to the Phillips Hue Monitor." << endl;
     while(noConnection) {
         try{
             string ip = "";
@@ -36,15 +31,23 @@ int main(int argc, char** argv) {
             cout << "Attempting connection to " << url << endl;
             auto response = Get(cpr::Url{url});
             auto jsonAllLights = json::parse(response.text);
-            numLights = jsonAllLights.size();
             noConnection = false;
-            cout << "Connection active.\nInitial light states:" << endl;
+            cout << "Connection active." << endl;
         } catch (exception e) {
             cout << "Connection Failed.\n\n" << endl;
         }
     }
+    return url;
+}
 
-    //get initial light states
+int getNumLights(string url){
+    auto response = Get(cpr::Url{url});
+    auto jsonAllLights = json::parse(response.text);
+    int numLights = jsonAllLights.size();
+    return numLights;
+}
+
+void getInitialLightStates(string url, int numLights, json &jsonState){
     for (int i=1; i<numLights+1; i++){
         string lightUrl = url;
         string istr = to_string(i);
@@ -59,27 +62,30 @@ int main(int argc, char** argv) {
         bri = (int) bri*100.0f/254.0f + 0.5f;
         jsonState[istr]["brightness"] = bri;
     }
+}
 
-    //Print initial light states
-    cout << "[" << endl;
+void printInitialLightStates(int numLights, json &jsonState){
+    cout << "Initial light states:" << endl << "[" << endl;
     for (int i=1; i<numLights+1; i++) {
         string istr = to_string(i);
         int bri = jsonState[istr]["brightness"];
-        //cout << jsonState[istr].dump(4);
+        //cout << jsonState[istr].dump(4) << endl; //Much cleaner, but doesn't respect specified order
         cout << "{\n\"name\":" << jsonState[istr]["name"]
-                               << ",\n\"id\":" << jsonState[istr]["id"]
-                                                  << ",\n\"on\":"
-                                                  << jsonState[istr]["on"]
-                                                  << "\n\"brightness\": "
-                                                  << to_string(bri)
-                                                  << "\n}";
+             << ",\n\"id\":" << jsonState[istr]["id"]
+             << ",\n\"on\":"
+             << jsonState[istr]["on"]
+             << "\n\"brightness\": "
+             << to_string(bri)
+             << "\n}";
         if(i < numLights){
             cout << ",";
         }
         cout << endl;
     }
     cout << "]" << endl;
+}
 
+void monitorChanges(string url, int numLights, json &jsonState){
     cout << "\n\nMonitoring for changes. Press ctrl-c to exit." << endl;
 
     //check for changes in light states and print
@@ -97,7 +103,7 @@ int main(int argc, char** argv) {
                     disconnect = false;
                     cout << "Connection active. Monitoring resumed." << endl;
                 }
-                // print changes
+                // print changes //Consider creating separate print function.
                 if (jsonState[istr]["on"] != jsonTmp["state"]["on"]){
                     jsonState[istr]["on"] = jsonTmp["state"]["on"];
                     cout << "{\n\"id\":\"" << istr << "\",\n\"on\":"
@@ -121,4 +127,22 @@ int main(int argc, char** argv) {
         }
         this_thread::sleep_for(chrono::milliseconds(500));
     }
+}
+
+int main(int argc, char** argv) {
+    int numLights;
+    json jsonState;
+    string url;
+
+    cout << "Welcome to the Phillips Hue Monitor." << endl;
+
+    url = connect();
+
+    numLights = getNumLights(url);
+
+    getInitialLightStates(url, numLights, jsonState);
+
+    printInitialLightStates(numLights,jsonState);
+
+    monitorChanges(url, numLights, jsonState);
 }
